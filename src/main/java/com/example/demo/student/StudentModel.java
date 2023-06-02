@@ -1,14 +1,25 @@
 package com.example.demo.student;
 
+import jakarta.persistence.*;
 import java.time.LocalDate;
 
-public class Student {
+@Entity
+@Table(name = "students")
+public class StudentModel {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+
+    @Column(name = "name")
     private String name;
+
+    @Column(name = "email")
     private String email;
 
+    @Column(name = "dob")
     private LocalDate dob;
 
+    @Column(name = "age")
     private Integer age;
 
     @Override
@@ -62,11 +73,13 @@ public class Student {
         this.age = age;
     }
 
-    public Student(Long id, String name, String email, LocalDate dob, Integer age) {
+    public StudentModel(Long id, String name, String email, LocalDate dob, Integer age) {
         this.id = id;
         this.name = name;
         this.email = email;
         this.dob = dob;
         this.age = age;
     }
+
+    public StudentModel(){}
 }
